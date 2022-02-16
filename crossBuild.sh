@@ -1,12 +1,13 @@
 #!/bin/bash
 
 rm -r build/
-rm -r bin/
+rm -r lib/
 
 mkdir build
-mkdir bin
+mkdir lib
 cd build
 cmake .. 
 make -j4
 cd ..
-cp -r ./build/bin/* ./bin/
+cp -r ./build/bin/* ./lib/
+cp ./build/include/assimp/config.h ./include/assimp/
