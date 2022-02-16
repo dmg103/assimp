@@ -1,4 +1,5 @@
 #!/bin/bash
+git checkout master
 
 rm -r build/
 rm -r lib/
