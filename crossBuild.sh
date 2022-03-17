@@ -9,7 +9,7 @@ mkdir build
 mkdir lib
 cd build
 cmake .. -DBUILD_SHARED_LIBS=OFF
-make -j4
+make -j
 cd ..
 cp -r ./build/lib/* ./lib/
 mv ./lib/libassimp.a ./lib/libassimpLinux.a
@@ -20,8 +20,8 @@ rm -r build/
 #Windows
 mkdir build
 cd build
-cmake CXX=x86_64-w64-mingw32-g++ .. -DBUILD_SHARED_LIBS=OFF
-make -j4
+cmake -D CMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ .. -DBUILD_SHARED_LIBS=OFF
+make -j
 cd ..
 cp -r ./build/lib/* ./lib/
 mv ./lib/libassimp.a ./lib/libassimpWin.a
