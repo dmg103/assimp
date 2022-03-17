@@ -4,11 +4,25 @@ git checkout master
 rm -r build/
 rm -r lib/
 
+#Linux
 mkdir build
 mkdir lib
 cd build
-cmake .. 
+cmake .. -DBUILD_SHARED_LIBS=OFF
 make -j4
 cd ..
-cp -r ./build/bin/* ./lib/
+cp -r ./build/lib/* ./lib/
+mv ./lib/libassimp.a ./lib/libassimpLinux.a
+cp ./build/include/assimp/config.h ./include/assimp/
+
+rm -r build/
+
+#Windows
+mkdir build
+cd build
+cmake CXX=x86_64-w64-mingw32-g++ .. -DBUILD_SHARED_LIBS=OFF
+make -j4
+cd ..
+cp -r ./build/lib/* ./lib/
+mv ./lib/libassimp.a ./lib/libassimpWin.a
 cp ./build/include/assimp/config.h ./include/assimp/
