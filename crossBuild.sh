@@ -9,7 +9,7 @@ mkdir build
 mkdir lib
 cd build
 cmake .. -DBUILD_SHARED_LIBS=OFF
-make -j
+make -j4
 cd ..
 cp -r ./build/lib/* ./lib/
 mv ./lib/libassimp.a ./lib/libassimpLinux.a
