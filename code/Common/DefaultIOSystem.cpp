@@ -166,6 +166,10 @@ inline static std::string MakeAbsolutePath(const char *in) {
         out = WideToUtf8(ret);
         free(ret);
     }
+#elif _SWITCH
+    if(true){
+        out = in;
+    }
 #else
     char *ret = realpath(in, nullptr);
     if (ret) {
